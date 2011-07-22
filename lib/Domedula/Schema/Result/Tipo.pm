@@ -1,5 +1,5 @@
 
-package Domedula::Schema::Tipo;
+package Domedula::Schema::Result::Tipo;
 
 use strict;
 use warnings;
@@ -18,7 +18,7 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key('id');
 __PACKAGE__->add_unique_constraint( [qw/nome/] );
 
-__PACKAGE__->has_many( campanhas => 'Domedula::Schema::Campanha' =>
+__PACKAGE__->has_many( campanhas => 'Domedula::Schema::Result::Campanha' =>
       { 'foreign.campanha_id' => 'self.id' } );
 
 =head1 AUTHOR

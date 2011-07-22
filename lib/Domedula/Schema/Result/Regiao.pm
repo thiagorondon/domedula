@@ -1,5 +1,5 @@
 
-package Domedula::Schema::Regiao;
+package Domedula::Schema::Result::Regiao;
 
 use strict;
 use warnings;

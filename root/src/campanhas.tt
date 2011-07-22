@@ -1,0 +1,18 @@
+
+<h1>Campanhas</h1>
+
+
+[% FOREACH item IN campanhas.all %]
+<b>[% item.nome %] </b>
+<p> [% item.descricao %] </p>
+<p> Meta: [% item.meta %] </p>
+<a href="/campanha/[% item.id %]/doar">Doar!</a>
+-
+<a href="/campanha/[% item.id %]/divulgar/facebook">Facebook</a> -
+<a href="/campanha/[% item.id %]/divulgar/twitter">twitter</a> -
+<a href="/campanha/[% item.id %]/divulgar/orkut">orkut</a> -
+<a href="/campanha/[% item.id %]/divulgar/email">email</a>
+
+<br/>
+[% END %]
+

@@ -1,0 +1,21 @@
+
+<h1>Doar!</h1>
+
+<table><tr><td>
+
+e-mail:
+	</td><td>
+<input type="text" name="nome" size="25" maxlength="255">
+
+</td></tr><tr><td>
+
+<input type="checkbox" size="publicidade" checked>
+	</td><td>
+Eu aceito receber e-mails sobre campanhas de doações.
+
+</td></tr><tr><td colspan="2">
+
+	<input type="submit" name=" Doar ! "/>
+
+</td></tr></table>
+

@@ -1,0 +1,15 @@
+
+<h1>Hemocentros</h1>
+
+Há [% hemocentros.count %] cadastrados.
+
+
+[% FOREACH item IN hemocentros.all %]
+	<hr size="1">
+
+	Nome: [% item.nome %] <br/>
+	Latitude: [% item.lat %] <br/>
+	Longitude: [% item.lon %] <br/>
+	<hr size="1">
+[% END %]
+

@@ -2,7 +2,17 @@ package Domedula::Model::DB;
 use Moose;
 use namespace::autoclean;
 
-extends 'Catalyst::Model';
+extends 'Catalyst::Model::DBIC::Schema';
+
+__PACKAGE__->config(
+    schema_class => 'Domedula::Schema',
+
+    connect_info => {
+        dsn      => 'dbi:SQLite:dbname=data.db',
+        user     => '',
+        password => '',
+    }
+);
 
 =head1 NAME
 

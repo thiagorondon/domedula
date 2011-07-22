@@ -1,5 +1,5 @@
 
-package Domedula::Schema::Hemocentro;
+package Domedula::Schema::Result::Hemocentro;
 
 use strict;
 use warnings;
@@ -16,7 +16,8 @@ __PACKAGE__->add_columns(
     responsavel => { data_type => 'varchar', size              => 255 },
     email       => { data_type => 'varchar', size              => 255 },
     telefone    => { data_type => 'integer', size              => 10 },
-    geom        => { data_type => 'geometry' }
+    lat         => { data_type => 'varchar' },
+    lon         => { data_type => 'varchar' }
 );
 
 __PACKAGE__->set_primary_key('id');

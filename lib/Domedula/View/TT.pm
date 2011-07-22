@@ -8,6 +8,9 @@ use base 'Catalyst::View::TT';
 __PACKAGE__->config(
     TEMPLATE_EXTENSION => '.tt',
     render_die => 1,
+    INCLUDE_PATH =>
+              [ map { Domedula->path_to(@$_) }[qw(root src)], [qw(root lib)] ],
+    WRAPPER => 'wrapper.tt'
 );
 
 =head1 NAME

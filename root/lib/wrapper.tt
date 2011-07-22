@@ -1,0 +1,19 @@
+
+<html>
+<head>
+<title>domedula.com.br</title>
+</head>
+<body>
+
+| 
+<a href="/">/</a>
+-
+<a href="/hemocentros">hemocentros</a>
+-
+<a href="/campanhas">campanhas</a>
+|
+
+[% content %]
+
+</body>
+</html>

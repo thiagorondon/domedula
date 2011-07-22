@@ -26,23 +26,45 @@ The root page (/)
 
 =cut
 
-sub index :Path :Args(0) {
+sub base :Chained('/') PathPart('') CaptureArgs(0) {
+    my ( $self, $c ) = @_;
+}
+
+sub root :PathPart('') :Chained('base')  :Args(0) {
     my ( $self, $c ) = @_;
 
     # Hello World
-    $c->response->body( $c->welcome_message );
+    #$c->response->body( $c->welcome_message );
 }
 
-=head2 default
-
-Standard 404 error page
-
-=cut
-
-sub default :Path {
+sub hemocentros : Chained('base') Args(0) {
     my ( $self, $c ) = @_;
-    $c->response->body( 'Page not found' );
-    $c->response->status(404);
+    my $rs = $c->model('DB::Hemocentro');
+    $c->stash->{hemocentros} = $rs;
+}
+
+sub campanha_invalida : Chained('base') PathPart('campanha/invalida') Args(0) { }
+
+sub campanha : Chained('base') PathPart('campanha') CaptureArgs(1) {
+    my ( $self, $c, $id ) = @_;
+
+    my $rs = $c->model('DB::Campanha');
+    $c->stash->{campanha} = $rs->find($id) or $c->res->redirect('/campanha/invalida');
+}
+
+sub doar : Chained('campanha') Args(0) {
+    my ( $self, $c ) = @_;
+
+    $c->detach() unless $c->req->method eq 'POST';
+    my $rs = $c->model('DB::Doacao');
+
+}
+
+sub campanhas :Chained('base') Args(0) {
+    my ( $self, $c ) = @_;
+    
+    my $rs = $c->model('DB::Campanha');
+    $c->stash->{campanhas} = $rs->search();
 }
 
 =head2 end

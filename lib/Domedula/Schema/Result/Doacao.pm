@@ -1,5 +1,5 @@
 
-package Domedula::Schema::Doacao;
+package Domedula::Schema::Result::Doacao;
 
 use strict;
 use warnings;
@@ -16,10 +16,10 @@ __PACKAGE__->add_columns(
 
 );
 
-__PACKAGE__->belongs_to( usuario => 'Domedula::Schema::Usuario' =>
+__PACKAGE__->belongs_to( usuario => 'Domedula::Schema::Result::Usuario' =>
       { 'foreign.id' => 'self.usuario_id' } );
 
-__PACKAGE__->belongs_to( campanha => 'Domedula::Schema::Campanha' =>
+__PACKAGE__->belongs_to( campanha => 'Domedula::Schema::Result::Campanha' =>
       { 'foreign.id' => 'self.campanha_id' } );
 
 =head1 AUTHOR

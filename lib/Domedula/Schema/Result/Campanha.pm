@@ -1,5 +1,5 @@
 
-package Domedula::Schema::Campanha;
+package Domedula::Schema::Result::Campanha;
 
 use strict;
 use warnings;
@@ -13,6 +13,7 @@ __PACKAGE__->add_columns(
     tipo_id   => { data_type => 'integer', size              => 1 },
     nome      => { data_type => 'varchar', size              => 255 },
     descricao => { data_type => 'longtext' },
+    meta      => { data_type => 'integer' },
     tt_ini    => { data_type => 'timestamp' },
     tt_fim    => { data_type => 'timestamp' }
 );
@@ -21,11 +22,10 @@ __PACKAGE__->set_primary_key('id');
 __PACKAGE__->add_unique_constraint( [qw/nome/] );
 
 __PACKAGE__->belongs_to(
-    tipo => 'Domedula::Schema::Tipo' => { 'foreign.id' => 'self.tipo_id' } );
+    tipo => 'Domedula::Schema::Result::Tipo' => { 'foreign.id' => 'self.tipo_id' } );
 
-__PACKAGE__->has_many(
-    doacoes => 'Domedula::Schema::Doacao' => { 'foreign.doacao_id' => 'self.id' } );
-
+__PACKAGE__->has_many( doacoes => 'Domedula::Schema::Result::Doacao' =>
+      { 'foreign.doacao_id' => 'self.id' } );
 
 =head1 AUTHOR
 
