@@ -5,7 +5,7 @@
 [% FOREACH item IN campanhas.all %]
 <b>[% item.nome %] </b>
 <p> [% item.descricao %] </p>
-<p> Meta: [% item.meta %] </p>
+<p> Meta: [% item.doacoes_andamento %]/[% item.meta %] </p>
 <a href="/campanha/[% item.id %]/doar">Doar!</a>
 -
 <a href="/campanha/[% item.id %]/divulgar/facebook">Facebook</a> -

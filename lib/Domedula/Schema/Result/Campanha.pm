@@ -25,7 +25,13 @@ __PACKAGE__->belongs_to(
     tipo => 'Domedula::Schema::Result::Tipo' => { 'foreign.id' => 'self.tipo_id' } );
 
 __PACKAGE__->has_many( doacoes => 'Domedula::Schema::Result::Doacao' =>
-      { 'foreign.doacao_id' => 'self.id' } );
+      { 'foreign.campanha_id' => 'self.id' } );
+
+sub doacoes_andamento {
+    my $self = shift;
+    return $self->doacoes->count || 0;
+}
+
 
 =head1 AUTHOR
 
