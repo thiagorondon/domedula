@@ -13,6 +13,7 @@ __PACKAGE__->add_columns(
     usuario_id  => { data_type => 'integer' },
     campanha_id => { data_type => 'integer' },
     ts          => { data_type => 'timestamp' },
+    status      => { data_type => 'integer' },
 
 );
 
