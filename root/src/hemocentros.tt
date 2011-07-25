@@ -1,4 +1,6 @@
 
+
+
 <h1>Hemocentros</h1>
 
 Há [% hemocentros.count %] cadastrados.
@@ -10,6 +12,11 @@ Há [% hemocentros.count %] cadastrados.
 	Nome: [% item.nome %] <br/>
 	Latitude: [% item.lat %] <br/>
 	Longitude: [% item.lon %] <br/>
+
+	<iframe src="http://maps.google.com/maps/api/staticmap?center=[% item.lat %],[% item.lon %]&maptype=ro&zoom=14&size=512x512&sensor=false&markers=color:green|label:G|[% item.lat %],[% item.lon %]" width="512" height="512"></iframe>
+
 	<hr size="1">
+
+
 [% END %]
 

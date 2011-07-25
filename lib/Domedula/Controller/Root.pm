@@ -57,7 +57,6 @@ sub doar : Chained('campanha') Args(0) {
 
     $c->detach() unless $c->req->method eq 'POST';
     my $rs = $c->model('DB::Doacao');
-
 }
 
 sub campanhas :Chained('base') Args(0) {
