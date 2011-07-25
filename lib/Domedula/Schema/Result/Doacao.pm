@@ -9,13 +9,15 @@ use base qw( DBIx::Class );
 __PACKAGE__->load_components(qw/Core/);
 __PACKAGE__->table('doacao');
 __PACKAGE__->add_columns(
-    id          => { data_type => 'integer', is_auto_increment => 1 },
+    id          => { data_type => 'integer',   is_auto_increment => 1 },
     usuario_id  => { data_type => 'integer' },
     campanha_id => { data_type => 'integer' },
-    ts          => { data_type => 'timestamp' },
-    status      => { data_type => 'integer' },
+    ts          => { data_type => 'timestamp', default           => \'NOW()' },
+    status      => { data_type => 'integer',   default           => 0 },
 
 );
+
+__PACKAGE__->set_primary_key('id');
 
 __PACKAGE__->belongs_to( usuario => 'Domedula::Schema::Result::Usuario' =>
       { 'foreign.id' => 'self.usuario_id' } );

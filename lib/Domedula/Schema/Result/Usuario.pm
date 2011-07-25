@@ -10,18 +10,12 @@ __PACKAGE__->load_components(qw/Core/);
 __PACKAGE__->table('usuario');
 __PACKAGE__->add_columns(
     id       => { data_type => 'integer', is_auto_increment => 1 },
-    nome     => { data_type => 'varchar' },
-    type     => { data_type => 'varchar' }, # TODO
-    grupo_id => { data_type => 'integer' },
-    extra    => { data_type => 'varchar', is_nullable       => 1, },
-    ts       => { data_type => 'timestamp' },
+    email    => { data_type => 'varchar' },
+    ts       => { data_type => 'timestamp', default => \'NOW()' },
 );
 
 __PACKAGE__->set_primary_key('id');
-__PACKAGE__->add_unique_constraint( [qw/nome/] );
-
-__PACKAGE__->belongs_to(
-    grupo => 'Domedula::Schema::Result::Grupo' => { 'foreign.id' => 'self.grupo_id' } );
+__PACKAGE__->add_unique_constraint( [qw/email/] );
 
 __PACKAGE__->has_many( doacoes => 'Domedula::Schema::Result::Doacao' =>
       { 'foreign.usuario_id' => 'self.id' } );

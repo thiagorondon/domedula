@@ -1,11 +1,15 @@
 
 <h1>Doar!</h1>
 
+[% INCLUDE error.tt %]
+
+<form method="POST">
+
 <table><tr><td>
 
 e-mail:
 	</td><td>
-<input type="text" name="nome" size="25" maxlength="255">
+<input type="text" name="email" size="25" maxlength="255">
 
 </td></tr><tr><td>
 
