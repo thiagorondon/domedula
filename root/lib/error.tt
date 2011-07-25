@@ -1,0 +1,7 @@
+
+[% IF err == 100 %]
+	<p>E-mail inválido.</p>
+[% ELSE %]
+	<p>Erro desconhecido. ([% err %])</p>
+[% END %]
+
