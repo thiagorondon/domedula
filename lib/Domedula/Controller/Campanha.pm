@@ -32,12 +32,12 @@ sub doar : Chained('campanha') Args(0) {
         $c->detach;
     }
 
-    my $user = $rs_usuario->find_or_create(
+    $c->stash->{user} = $rs_usuario->find_or_create(
         { email => $c->req->param('email'), ts => \'CURRENT_TIMESTAMP' } );
 
-    $rs_doacao->create(
+    $c->stash->{doacao} = $rs_doacao->create(
         {
-            usuario_id  => $user->id,
+            usuario_id  => $c->stash->{user}->id,
             campanha_id => $c->stash->{campanha}->id,
             ts          => \'CURRENT_TIMESTAMP',
             status      => 0
