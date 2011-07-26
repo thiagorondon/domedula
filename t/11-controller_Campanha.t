@@ -5,6 +5,13 @@ use Test::More;
 use Catalyst::Test 'Domedula';
 use HTTP::Request::Common;
 
+use FindBin qw($Bin);
+use lib "$Bin/lib";
+use DBICTest;
+
+
+my $schema = DBICTest->init_schema;
+
 ok( my $controller = Domedula->controller('Campanha') );
 
 {

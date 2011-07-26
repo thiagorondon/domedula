@@ -4,11 +4,16 @@ use namespace::autoclean;
 
 extends 'Catalyst::Model::DBIC::Schema';
 
+my $dbfile = 'data.db';
+$dbfile = 't/var/data.db' if -r 't/lib/DBICTest.pm';
+
+warn $dbfile;
+
 __PACKAGE__->config(
     schema_class => 'Domedula::Schema',
 
     connect_info => {
-        dsn      => 'dbi:SQLite:dbname=data.db',
+        dsn      => "dbi:SQLite:dbname=$dbfile",
         user     => '',
         password => '',
     }
