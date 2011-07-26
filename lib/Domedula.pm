@@ -39,6 +39,7 @@ __PACKAGE__->config(
     name => 'Domedula',
     # Disable deprecated behavior needed by old applications
     disable_component_resolution_regex_fallback => 1,
+    default_view => 'TT'
 );
 
 # Start the application
