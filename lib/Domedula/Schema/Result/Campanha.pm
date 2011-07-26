@@ -21,8 +21,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key('id');
 __PACKAGE__->add_unique_constraint( [qw/nome/] );
 
-__PACKAGE__->belongs_to(
-    tipo => 'Domedula::Schema::Result::Tipo' => { 'foreign.id' => 'self.tipo_id' } );
+__PACKAGE__->belongs_to( tipo => 'Domedula::Schema::Result::Tipo' =>
+      { 'foreign.id' => 'self.tipo_id' } );
 
 __PACKAGE__->has_many( doacoes => 'Domedula::Schema::Result::Doacao' =>
       { 'foreign.campanha_id' => 'self.id' } );
@@ -32,6 +32,18 @@ sub doacoes_andamento {
     return $self->doacoes->count || 0;
 }
 
+sub url {
+    my $self        = shift;
+    my $host_server = 'http://xxx.com';
+    my $c_url =
+      join( '/', $host_server, 'campanha', $self->id, 'compartilhar' );
+}
+
+sub image {
+    my $self        = shift;
+    my $host_server = 'http://xxx.com';
+    return "$host_server/image.png";
+}
 
 =head1 AUTHOR
 

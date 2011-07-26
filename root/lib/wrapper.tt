@@ -12,6 +12,16 @@
 </head>
 <body>
 
+[% IF campanha %]
+<meta property='og:title' content="[% campanha.nome %] -
+Ofertanocelular.com.br">
+<meta property='og:site_name' content='doejunto.com.br' />
+<meta property='og:image'content="[% campanha.image %]"/>
+<meta property='og:type' content='website' />
+<meta property='og:url' content="[% campanha.url %]"/>
+<meta property='og:description' content=" [% campanha.nome %]" />
+[% END %]
+
 | 
 <a href="/">/</a>
 -
